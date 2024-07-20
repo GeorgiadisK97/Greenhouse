@@ -29,7 +29,7 @@ Follow these steps to set up and customize the automated greenhouse system:
 To add new sensors or actuators to the system:
 
 1. Create a new object derived from the corresponding interface class (`Sensor` or `Motor`).
-2. Declare the necessary functions for the new component in the `config.h` file.
+2. Declare the necessary attributes for the new components in the `config.h` file.
 3. Define the components in `config.cpp` file. 
 
 ```cpp
