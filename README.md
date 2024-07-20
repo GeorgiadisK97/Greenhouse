@@ -42,26 +42,9 @@ extern float OFFSET;
 extern DHTSensor dhtSensorN;                // The new component as an object. (e.g dhtSensor1, dhtSensor2, ...).
 
 // DHT Sensor parameters Config.cpp
-const uint8_t DHT_TYPE_CONFIG = DHT11;
-const uint8_t DHT_DATA_PIN_CONFIG{6};
+const uint8_t DHT_TYPE_N_CONFIG = DHT11;
+const uint8_t DHT_DATA_PIN_N_CONFIG{6};
 float DHT_THRESHOLD = 26;
 float OFFSET{1};
 DHTSensor dhtSensor1(DHT_DATA_PIN_CONFIG, DHT_TYPE_CONFIG);
 
-// Add the methods inside function. 
-float readCheckDhtData()
-{
-    float currentTemp = dhtSensor1.read();
-    while (1) // Run the loop unti the data is valid.
-    {
-        if (dhtSensor1.checkData(currentTemp))
-            break;
-        else
-        {
-            delay(1000);
-            currentTemp = dhtSensor1.read();
-        }
-    }
-    // Serial.println(currentTemp);
-    return currentTemp;
-}
