@@ -18,7 +18,7 @@ Follow these steps to set up and customize the automated greenhouse system:
 
 1. **Hardware Setup:** Connect your sensors (DHT11, soil moisture), actuators (12V DC-water pump, 12V DC-fan, 5V-servo), and any additional components as per the provided circuit diagram.
 
-2. **Configuration:** Open the `config.h` file to add new sensors or actuator objects. Enter your desired values for each.
+2. **Configuration:** Open the `config.h` file to declare new sensors or actuator objects. In `config.cpp` define the declared variables.
 
 3. **Web Server Setup:** Configure your WiFi credentials in the code to enable data transmission to the web server.
 
@@ -26,25 +26,37 @@ Follow these steps to set up and customize the automated greenhouse system:
 
 ## Adding New Components
 
+There are two types of components. Sensors and Motors.
+A sensor object can be an analog sensor for humidity, or a DHT sensor for temperature. 
+A motor object can be a servo or a DC motor. For the motors it is required to use an external power supply and control them with relays, to avoid damaging the μC. 
+In this project a 12V DC motor is being used as a water pump. A 12V DC fan for heat control. And a 9V servo for opening/closing a window. 
+
 To add new sensors or actuators to the system:
 
-1. Create a new object derived from the corresponding interface class (`Sensor` or `Motor`).
+1. Create a new object derived from the corresponding interface class (`Sensor` or `Motor`). It can be a `DHTSensor`, `HMDSensor` or `Fan`, `Pump`, `Servo`. 
 2. Declare the necessary attributes for the new components in the `config.h` file.
 3. Define the components in `config.cpp` file. 
 
 ```cpp
+// "config.h"
 // Example for adding a new DHT11 sensor
-// DHT Sensor parameters Config.h
-extern const uint8_t DHT_TYPE_Ν_CONFIG;        // DHT11 or DHT22
-extern const uint8_t DHT_DATA_PIN_N_CONFIG;    // The data pin you have connected the sensor to the ESP. N: sensor index
+// DHT Sensor parameters config.h
 extern float DHT_THRESHOLD;
 extern float OFFSET;
-extern DHTSensor dhtSensorN;                // The new component as an object. (e.g dhtSensor1, dhtSensor2, ...).
 
-// DHT Sensor parameters Config.cpp
-const uint8_t DHT_TYPE_N_CONFIG = DHT11;
-const uint8_t DHT_DATA_PIN_N_CONFIG{6};
+// DHT Sensor N
+extern const uint8_t DHT_N_TYPE_CONFIG;        // DHT11 or DHT22
+extern const uint8_t DHT_N_DATA_PIN_CONFIG;    // The data pin you have connected the sensor to the ESP. N: sensor index
+extern DHTSensor dhtSensor_N;                // The new component as an object. (e.g dhtSensor1, dhtSensor2, ...).
+
+
+// "config.cpp"
+// DHT Sensor parameters 
 float DHT_THRESHOLD = 26;
 float OFFSET{1};
-DHTSensor dhtSensor1(DHT_DATA_PIN_CONFIG, DHT_TYPE_CONFIG);
+
+// DHT Sensor N
+const uint8_t DHT_N_TYPE_CONFIG = DHT11;
+const uint8_t DHT_N_DATA_PIN_CONFIG{6};
+DHTSensor dhtSensor1(DHT_N_DATA_PIN_CONFIG, DHT_N_TYPE_CONFIG);
 
