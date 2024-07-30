@@ -42,7 +42,7 @@ To add new sensors or actuators to the system:
 extern float DHT_THRESHOLD;
 
 // DHT Sensor N
-extern const uint8_t DHT_N_TYPE_CONFIG;        // DHT11 or DHT22
+extern const uint8_t DHT_N_TYPE_CONFIG;        // DHT11
 extern const uint8_t DHT_N_DATA_PIN_CONFIG;    // The data pin you have connected the sensor to the ESP. N: sensor index
 extern DHTSensor dhtSensor_N;                // The new component as an object. (e.g dhtSensor1, dhtSensor2, ...).
 
