@@ -7,9 +7,7 @@ This project is an automated greenhouse system designed for efficient plant cult
 ## Features
 
 - **Modular Design:** The project is built upon a modular architecture, utilizing interface classes for sensors and actuators. This design allows for seamless scalability without the need to rewrite code for each new component.
-
-- **Scalability:** Easily expand the system by adding new sensors or actuators. The scalability is achieved through a configuration file (`config.h`), where users can define new objects and with their corresponding attributes.
-
+- **Scalability:** Easily expand the system by adding new sensors or actuators.
 - **Web Server:** The system sends sensor data to a server, which is hosted by the ESP, for remote monitoring and data analysis.
 
 ## Getting Started
