@@ -40,7 +40,6 @@ To add new sensors or actuators to the system:
 // Example for adding a new DHT11 sensor
 // DHT Sensor parameters config.h
 extern float DHT_THRESHOLD;
-extern float OFFSET;
 
 // DHT Sensor N
 extern const uint8_t DHT_N_TYPE_CONFIG;        // DHT11 or DHT22
@@ -51,7 +50,6 @@ extern DHTSensor dhtSensor_N;                // The new component as an object. 
 // "config.cpp"
 // DHT Sensor parameters 
 float DHT_THRESHOLD = 26;
-float OFFSET{1};
 
 // DHT Sensor N
 const uint8_t DHT_N_TYPE_CONFIG = DHT11;
