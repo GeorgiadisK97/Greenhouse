@@ -14,11 +14,11 @@ This project is an automated greenhouse system designed for efficient plant cult
 
 Follow these steps to set up and customize the automated greenhouse system:
 
-1. **Hardware Setup:** Connect your sensors (DHT11, soil moisture), actuators (12V DC-water pump, 12V DC-fan, 5V-servo), and any additional components as per the provided circuit diagram.
+1. **Hardware Setup:** Connect your sensors (DHT11, Analog Sensors), actuators (12V DC-water pump, 12V DC-fan, 5V-servo), and any additional components as per the provided circuit diagram.
 
 2. **Configuration:** Open the `config.h` file to declare new sensors or actuator objects. In `config.cpp` define the declared variables.
 
-3. **Web Server Setup:** Configure your WiFi credentials in the code to enable data transmission to the web server.
+3. **Web Server Setup:** Configure your WiFi credentials in `config.cpp` to enable data transmission to the web server.
 
 4. **Upload Code:** Upload the code to the ESP32 microcontroller using your preferred development environment.
 
@@ -27,7 +27,7 @@ Follow these steps to set up and customize the automated greenhouse system:
 There are two types of components. Sensors and Motors.
 A sensor object can be an analog sensor for humidity, or a DHT sensor for temperature. 
 A motor object can be a servo or a DC motor. For the motors it is required to use an external power supply and control them with relays, to avoid damaging the μC. 
-In this project a 12V DC motor is being used as a water pump. A 12V DC fan for heat control. And a 5V servo for opening/closing a window. 
+In this project a 12V DC motor is being used as a water pump, a 12V DC fan for heat control and a 5V servo for opening/closing a window. 
 
 To add new sensors or actuators to the system:
 
