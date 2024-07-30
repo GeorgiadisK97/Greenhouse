@@ -52,7 +52,7 @@ extern DHTSensor dhtSensor_N;                // The new component as an object. 
 float DHT_THRESHOLD = 26;
 
 // DHT Sensor N
-const uint8_t DHT_N_TYPE_CONFIG = DHT11;
+const uint8_t DHT_N_TYPE_CONFIG{DHT11};
 const uint8_t DHT_N_DATA_PIN_CONFIG{6};
 DHTSensor dhtSensor1(DHT_N_DATA_PIN_CONFIG, DHT_N_TYPE_CONFIG);
 
