@@ -36,9 +36,9 @@ To add new sensors or actuators to the system:
 3. Define the components in `config.cpp` file. 
 
 ```cpp
-// "config.h"
 // Example for adding a new DHT11 sensor
 
+// "config.h"
 // DHT Sensor configurations
 extern const uint8_t DHT_1_TYPE_CONFIG;       // Type of DHT sensor 1
 extern const uint8_t DHT_1_DATA_PIN_CONFIG;   // Data pin for DHT sensor 1
