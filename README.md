@@ -38,21 +38,23 @@ To add new sensors or actuators to the system:
 ```cpp
 // "config.h"
 // Example for adding a new DHT11 sensor
-// DHT Sensor parameters config.h
-extern float DHT_THRESHOLD;
 
-// DHT Sensor N
-extern const uint8_t DHT_N_TYPE_CONFIG;        // DHT11
-extern const uint8_t DHT_N_DATA_PIN_CONFIG;    // The data pin you have connected the sensor to the ESP. N: sensor index
-extern DHTSensor dhtSensor_N;                // The new component as an object. (e.g dhtSensor1, dhtSensor2, ...).
+// DHT Sensor configurations
+extern const uint8_t DHT_1_TYPE_CONFIG;       // Type of DHT sensor 1
+extern const uint8_t DHT_1_DATA_PIN_CONFIG;   // Data pin for DHT sensor 1
+extern DHTSensor dht_sensor_1;                 // Instance of DHT sensor 1
 
+extern const uint8_t DHT_2_TYPE_CONFIG;       // Type of DHT sensor 2
+extern const uint8_t DHT_2_DATA_PIN_CONFIG;   // Data pin for DHT sensor 2
+extern DHTSensor dht_sensor_2;                 // Instance of DHT sensor 2
 
 // "config.cpp"
-// DHT Sensor parameters 
-float DHT_THRESHOLD{26};
+// DHT Sensor 1 Initialization
+const uint8_t DHT_1_TYPE_CONFIG{DHT11};            // Type of DHT sensor 1
+const uint8_t DHT_1_DATA_PIN_CONFIG{1};            // Data pin for DHT sensor 1
+DHTSensor dht_sensor_1(DHT_1_DATA_PIN_CONFIG, "DHT_SENSOR_1", DHT_1_TYPE_CONFIG);
 
-// DHT Sensor N
-const uint8_t DHT_N_TYPE_CONFIG{DHT11};
-const uint8_t DHT_N_DATA_PIN_CONFIG{6};
-DHTSensor dhtSensor1(DHT_N_DATA_PIN_CONFIG, DHT_N_TYPE_CONFIG);
-
+// DHT Sensor 2 Initialization
+const uint8_t DHT_2_TYPE_CONFIG{DHT11};            // Type of DHT sensor 2
+const uint8_t DHT_2_DATA_PIN_CONFIG{2};            // Data pin for DHT sensor 2
+DHTSensor dht_sensor_2(DHT_2_DATA_PIN_CONFIG, "DHT_SENSOR_2", DHT_2_TYPE_CONFIG);
